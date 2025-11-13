@@ -10,13 +10,24 @@ app.get("/user", userAuth, (req,res) => {
     res.send("User data send");
 })
 
-app.get("/admin/getalldata", (req,res) => {
-    res.send("All Data Sent");
+app.get("/getUserdata", (req,res) => {
+    throw new Error("dkfkjjsd");
+    res.send("User Data sent")
 })
 
-app.get("/admin/deleteuser", (req,res) => {
-    res.send("Deleted a User");
+app.use("/", (err,req,res,next) => {
+    if(err){
+        res.status(500).send("something went wrong");
+    }
 })
+
+// app.get("/admin/getalldata", (req,res) => {
+//     res.send("All Data Sent");
+// })
+
+// app.get("/admin/deleteuser", (req,res) => {
+//     res.send("Deleted a User");
+// })
 
 app.listen(7777, () => {
     console.log("Server is Successfully listining on port 7777...")
