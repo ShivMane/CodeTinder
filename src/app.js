@@ -9,17 +9,23 @@ app.use(express.json());
 
 app.post("/signup", async (req, res) => {
 
+    const user = new User(req.body);
+    
     // Creating new user from request (Hardcoded for now)
-    const user = new User({
-        firstName: "Shiv",
-        lastName: "Mane",
-        emailId: "Shiv@mane.com",
-        password: "Shiv@123",
-    });
+    
+    // const user = new User({
+    //     firstName: "Shiv",
+    //     lastName: "Mane",
+    //     emailId: "Shiv@mane.com",
+    //     password: "Shiv@123",
+    // });
 
-    await user.save();
-
-    res.send("User Added Successfully...");
+    try{
+        await user.save();
+        res.send("User Added Successfully...");
+    }catch (err){
+        res.status(400).send("Error Saving the user:" + err.message);
+    }
 });
 
 connectDB()

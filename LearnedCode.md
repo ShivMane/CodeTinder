@@ -79,3 +79,13 @@
 // app.use("/",(req,res) => {
 //     res.send("Hello Shiv...")
 // })
+
+
+// Creating new user from request (Hardcoded for now)
+    
+    // const user = new User({
+    //     firstName: "Shiv",
+    //     lastName: "Mane",
+    //     emailId: "Shiv@mane.com",
+    //     password: "Shiv@123",
+    // });
